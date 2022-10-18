@@ -81,13 +81,16 @@ jobs:
 
     - name: Prepare ccache timestamp
       id: ccache_cache_timestamp
-      shell: cmake -P {0}
+      # shell: cmake -P {0}
+      shell: bash
       run: |
-        string(TIMESTAMP current_date "%Y-%m-%d-%H;%M;%SZ" UTC)
+        # string(TIMESTAMP current_date "%Y-%m-%d-%H;%M;%SZ" UTC)
         # message("print timestamp: timestamp::${current_date}")
         # message("print current_data: ${current_date}")
         # message("::set-output name=timestamp::${current_date}")
-        message("timestamp=${current_date}") >> $GITHUB_OUTPUT
+        #TZ=UTC
+        current_date=${date +"%Y-%m-%d-%H;%M;%S %Z"}
+        echo "timestamp=${current_date}" >> $GITHUB_OUTPUT
 
     - name: print GITHUB_OUTPUT
       run: echo "GITHUB_OUTPUT is $GITHUB_OUTPUT"

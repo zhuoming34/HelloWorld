@@ -114,9 +114,9 @@ jobs:
         endif()
 
         set(path_separator ":")
-        if ("${{ runner.os }}" STREQUAL "Windows")
-          set(path_separator ";")
-        endif()
+
+        message("[ENV{GITHUB_WORKSPACE}] is $ENV{GITHUB_WORKSPACE}")
+        message("[ENV{PATH}] was $ENV{PATH}")
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
         message("[ENV{PATH}] is $ENV{PATH}")
 

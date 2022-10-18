@@ -118,6 +118,7 @@ jobs:
           set(path_separator ";")
         endif()
         set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
+        message("[ENV{PATH}] is $ENV{PATH}")
 
         execute_process(
           COMMAND cmake

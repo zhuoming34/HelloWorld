@@ -84,11 +84,6 @@ jobs:
       # shell: cmake -P {0}
       shell: bash
       run: |
-        # string(TIMESTAMP current_date "%Y-%m-%d-%H;%M;%SZ" UTC)
-        # message("print timestamp: timestamp::${current_date}")
-        # message("print current_data: ${current_date}")
-        # message("::set-output name=timestamp::${current_date}")
-        #TZ=UTC
         current_date=$(date +"%Y-%m-%d-%H;%M;%S-%Z")
         echo "timestamp=${current_date}" >> $GITHUB_OUTPUT
         echo $current_date

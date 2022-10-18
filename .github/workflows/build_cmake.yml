@@ -84,10 +84,13 @@ jobs:
       shell: cmake -P {0}
       run: |
         string(TIMESTAMP current_date "%Y-%m-%d-%H;%M;%SZ" UTC)
-        message("print timestamp: timestamp::${current_date}")
-        message("print current_data: ${current_date}")
-        message("::set-output name=timestamp::${current_date}")
-        
+        # message("print timestamp: timestamp::${current_date}")
+        # message("print current_data: ${current_date}")
+        # message("::set-output name=timestamp::${current_date}")
+        message("timestamp=${current_date}") >> $GITHUB_OUTPUT
+
+    - name: print GITHUB_OUTPUT
+      run: echo "GITHUB_OUTPUT is $GITHUB_OUTPUT"
 
     - name: ccache cache files
       uses: actions/cache@v2

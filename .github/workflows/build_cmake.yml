@@ -91,9 +91,12 @@ jobs:
         #TZ=UTC
         current_date=$(date +"%Y-%m-%d-%H;%M;%S-%Z")
         echo "timestamp=${current_date}" >> $GITHUB_OUTPUT
+        echo $current_date
 
     - name: print GITHUB_OUTPUT
-      run: echo "GITHUB_OUTPUT is $GITHUB_OUTPUT"
+      run: |
+      echo "GITHUB_OUTPUT is $GITHUB_OUTPUT"
+      echo "${{ steps.ccache_cache_timestamp.outputs.timestamp }}"
 
     - name: ccache cache files
       uses: actions/cache@v2

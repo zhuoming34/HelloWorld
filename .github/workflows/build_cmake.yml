@@ -89,7 +89,7 @@ jobs:
         # message("print current_data: ${current_date}")
         # message("::set-output name=timestamp::${current_date}")
         #TZ=UTC
-        current_date=${date +"%Y-%m-%d-%H;%M;%S %Z"}
+        current_date=${date +"%Y-%m-%d-%H;%M;%S-%Z"}
         echo "timestamp=${current_date}" >> $GITHUB_OUTPUT
 
     - name: print GITHUB_OUTPUT
